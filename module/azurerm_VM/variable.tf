@@ -20,3 +20,18 @@ variable "subnet_id" {
   
 }
 
+variable "azurermpublicip" {
+  
+}
+
+variable "custom_data" {
+  
+}
+
+variable "admin_username" {
+  
+}
+
+variable "admin_password" {
+  
+}
