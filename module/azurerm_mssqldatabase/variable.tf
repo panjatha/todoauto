@@ -1,0 +1,7 @@
+variable "sqldatabase" {
+  
+}
+
+variable "serverid" {
+  
+}
