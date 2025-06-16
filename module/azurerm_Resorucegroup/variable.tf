@@ -1,7 +1,5 @@
-variable "resource_group" {
+variable "rg" {
   
 }
 
-variable "location" {
-  
-}
+

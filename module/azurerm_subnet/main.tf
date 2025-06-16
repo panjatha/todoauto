@@ -1,6 +1,7 @@
-resource "azurerm_subnet" "example" {
-  name                 = var.subnet
-  resource_group_name  = var.rgname
-  virtual_network_name = var.vnet
-  address_prefixes     = var.address_prefixes
+resource "azurerm_subnet" "subnet" {
+  for_each = var.subnet
+  name                 = each.value.subnetname
+  resource_group_name  = each.value.rgname
+  virtual_network_name = each.value.vnetname
+  address_prefixes     = each.value.address_prefixes
 }

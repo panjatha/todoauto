@@ -1,0 +1,4 @@
+variable "azurerm_nic" {
+  
+}
+

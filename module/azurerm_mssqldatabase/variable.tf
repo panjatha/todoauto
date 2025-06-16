@@ -1,7 +1,7 @@
-variable "sqldatabase" {
-  
-}
+# variable "sqldatabase" {
+#   type = string
+# }
 
-variable "serverid" {
+# variable "serverid" {
   
-}
+# }

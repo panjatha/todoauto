@@ -1,10 +1,10 @@
-variable "msqlserver" {
+# variable "msqlserver" {
   
-}
+# }
 
-variable "rgname" {
+# variable "rgname" {
   
-}
-variable "location" {
+# }
+# variable "location" {
   
-}
+# }
