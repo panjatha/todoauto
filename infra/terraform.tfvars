@@ -1,14 +1,14 @@
 rg = {
   "rg1" = {
     rgname   = "mandeeprg"
-    location = "East US"
+    location = "West US"
   }
 }
 
 vnet = {
   "vnet1" = {
     vnetname      = "mandeepvnet"
-    location      = "East US"
+    location      = "West US"
     rgname        = "mandeeprg"
     address_space = ["10.0.0.0/16"]
   }
@@ -33,7 +33,7 @@ publicip = {
   public1 = {
     publicname        = "publicip1"
     rgname            = "mandeeprg"
-    location          = "East US"
+    location          = "West US"
     allocation_method = "Dynamic"
     sku               = "Basic"
   }
@@ -41,7 +41,7 @@ publicip = {
   public2 = {
     publicname        = "publicip2"
     rgname            = "mandeeprg"
-    location          = "East US"
+    location          = "West US"
     allocation_method = "Dynamic"
     sku               = "Basic"
   }
@@ -52,7 +52,7 @@ azurerm_nic = {
   "nic1" = {
     nicname                       = "mandeepnic1"
     rgname                        = "mandeeprg"
-    location                      = "East US"
+    location                      = "West US"
     ipconfigname                  = "internal"
     private_ip_address_allocation = "Dynamic"
     publicip                      = "publicip1"
@@ -60,9 +60,9 @@ azurerm_nic = {
     subnet                        = "mandeepsubnet"
   }
   "nic2" = {
-    nicname                       = "mandeepnic1"
+    nicname                       = "mandeepnic2"
     rgname                        = "mandeeprg"
-    location                      = "East US"
+    location                      = "West US"
     ipconfigname                  = "internal"
     private_ip_address_allocation = "Dynamic"
     publicip                      = "publicip2"
@@ -70,15 +70,25 @@ azurerm_nic = {
     subnet                        = "mandeepsubnet2"
   }
 }
+keymandeep = {
+  keymandeep1 = {
+    mandeepvault = "panjathakeyvault"
+    location     = "West US"
+    rgname       = "mandeeprg"
+    secretname   = "username"
+    secret2name  = "password"
 
+  }
+}
 vmname = {
   "VM1" = {
     linuxVM                         = "firstVM"
     rgname                          = "mandeeprg"
-    location                        = "East US"
+    location                        = "West US"
     size                            = "Standard_F2"
-    admin_username                  = "azureadmin"
-    admin_password                  = "Waheguru@123"
+    keyvault                        = "panjathakeyvault"
+    secretname                      = "username"
+    secret2name                     = "password"
     disable_password_authentication = false
     caching                         = "ReadWrite"
     storage_account_type            = "Standard_LRS"
@@ -104,10 +114,11 @@ vmname = {
   "VM2" = {
     linuxVM                         = "secondVM"
     rgname                          = "mandeeprg"
-    location                        = "East US"
+    location                        = "West US"
     size                            = "Standard_F2"
-    admin_username                  = "azureadmin"
-    admin_password                  = "Waheguru@123"
+    keyvault                        = "panjathakeyvault"
+    secretname                      = "username"
+    secret2name                     = "password"
     disable_password_authentication = false
     caching                         = "ReadWrite"
     storage_account_type            = "Standard_LRS"
@@ -154,3 +165,4 @@ msqlserverdatabase = {
 
   }
 }
+
