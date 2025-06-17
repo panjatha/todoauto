@@ -17,8 +17,14 @@ module "subnet" {
   subnet = var.subnet
 }
 
+module "publicip" {
+  depends_on = [ module.rgname ]
+  source = "../module/publicip"
+publicip = var.publicip
+}
+
 module "azurermnic" {
-  depends_on = [ module.rgname,module.vnet,module.subnet ]
+  depends_on = [ module.rgname,module.vnet,module.subnet,module.publicip ]
   source = "../module/azurerm_nic"
   azurerm_nic = var.azurerm_nic
   
@@ -30,3 +36,19 @@ module "vmname" {
 vmname = var.vmname
   
 }
+
+module "msqlserver" {
+  depends_on = [ module.rgname ]
+  source = "../module/azurerm_mssqlserver"
+  msqlserver = var.msqlserver
+  
+}
+
+module "msqlserverdatabase" {
+  depends_on = [ module.msqlserver ]
+  source = "../module/azurerm_mssqldatabase"
+  msqlserverdatabase = var.msqlserverdatabase
+  
+}
+
+

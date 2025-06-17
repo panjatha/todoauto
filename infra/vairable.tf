@@ -23,3 +23,11 @@ variable "azurerm_nic" {
 
 }
 
+
+variable "msqlserver" {
+  
+}
+
+
+
+variable "msqlserverdatabase" { }
